@@ -1,33 +1,40 @@
 import { Link } from "react-router-dom";
-import  PageNotFoundImage from "../assets/pagenotfoundimage.png";
+import PageNotFoundImage from "../assets/pagenotfoundimage.png";
 import { Button } from "../components";
 import { useEffect } from "react";
-//import { useTitle } from "../hooks/useTitle";
 
 export const PageNotFound = () => {
-
-  useEffect(()=>{
-    document.title = `Page Not Found/ Cinemate`;
-  })
-
-   //const pageTitle =useTitle(title);
+  useEffect(() => {
+    document.title = `Page Not Found | Cinemate`;
+  });
 
   return (
-    <main>
-      <section className="flex flex-col justify-center px-2">
-      <div className="flex flex-col items-center my-2">
-       <p className="text-5xl text-gray-700 font-bold my-2 dark:text-white">404, Oops error! </p>
-       <div className="max-w-md">
-       <img className="rounded" src={PageNotFoundImage} alt="404 page not found" />
-      </div>
-      </div>
-      <div className="flex justify-center my-1">
+    <main className="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 bg-gray-50 dark:bg-gray-900">
+      <section className="flex flex-col items-center text-center">
+        {/* Error Code */}
+        <h1 className="text-4xl sm:text-5xl font-extrabold text-gray-800 dark:text-white mb-4">
+          404 - Page Not Found
+        </h1>
+
+        {/* Subtext */}
+        <p className="text-gray-600 dark:text-gray-400 mb-6 text-base sm:text-lg max-w-lg">
+          Oops! The page you are looking for doesn’t exist or has been moved.
+        </p>
+
+        {/* Image */}
+        <div className="max-w-sm w-full mb-6">
+          <img
+            className="rounded-lg shadow-md w-full"
+            src={PageNotFoundImage}
+            alt="404 page not found"
+          />
+        </div>
+
+        {/* Back Button */}
         <Link to="/">
-        <Button children="Back to Cinemate"/>
-        
+          <Button>Back to Cinemate</Button>
         </Link>
-      </div>
       </section>
     </main>
-  )
-}
+  );
+};
