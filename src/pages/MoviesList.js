@@ -7,10 +7,10 @@ export const MoviesList = ({ apiPath, title }) => {
   useTitle(title);
 
   return (
-    <main className="px-4 sm:px-6 lg:px-10 py-8">
+    <main className="px-4 sm:px-6 lg:px-10 py-10 bg-gray-50 dark:bg-gray-900 min-h-screen">
       <section className="max-w-7xl mx-auto">
         {/* Page Title */}
-        <h2 className="text-2xl sm:text-3xl font-bold mb-6 text-gray-800 dark:text-white text-center sm:text-left">
+        <h2 className="text-3xl sm:text-4xl font-extrabold mb-8 text-gray-900 dark:text-white text-center sm:text-left tracking-tight">
           {title}
         </h2>
 
@@ -20,6 +20,13 @@ export const MoviesList = ({ apiPath, title }) => {
             <Card key={movie.id} movie={movie} />
           ))}
         </div>
+
+        {/* No Movies Fallback */}
+        {movies.length === 0 && (
+          <p className="text-center text-gray-500 dark:text-gray-400 mt-10 text-lg">
+            No movies found.
+          </p>
+        )}
       </section>
     </main>
   );

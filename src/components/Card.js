@@ -8,27 +8,24 @@ export const Card = ({ movie }) => {
     : Backup;
 
   return (
-    <div
-      className="w-full sm:w-72 md:w-80 lg:w-72 xl:w-80 
-                 bg-white border border-gray-200 rounded-xl shadow-md 
-                 hover:shadow-lg transition-shadow duration-300 
-                 dark:bg-gray-800 dark:border-gray-700 
-                 m-4 flex flex-col"
-    >
+    <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-md border border-gray-200 dark:border-gray-700 overflow-hidden flex flex-col transition-transform duration-300 hover:scale-105">
+      {/* Poster */}
       <Link to={`/movie/${id}`}>
         <img
-          className="w-full h-64 object-cover rounded-t-xl"
           src={image}
           alt={original_title}
+          className="w-full h-72 sm:h-80 object-cover"
         />
       </Link>
+
+      {/* Info */}
       <div className="p-4 flex flex-col flex-grow">
         <Link to={`/movie/${id}`}>
-          <h5 className="mb-2 text-lg md:text-xl font-semibold tracking-tight text-gray-900 dark:text-white line-clamp-1">
+          <h5 className="text-lg sm:text-xl font-bold mb-2 line-clamp-2 text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200">
             {original_title}
           </h5>
         </Link>
-        <p className="mb-3 text-sm md:text-base font-normal text-gray-700 dark:text-gray-400 line-clamp-3">
+        <p className="text-sm sm:text-base text-gray-700 dark:text-gray-400 line-clamp-3 flex-grow">
           {overview}
         </p>
       </div>
