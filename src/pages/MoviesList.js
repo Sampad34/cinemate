@@ -46,17 +46,18 @@ export const MoviesList = ({ apiPath, title }) => {
           </p>
         ) : (
           <>
-            <div className="grid gap-6 sm:gap-8 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
-              {movies.map((movie) => (
-                <Card key={movie.id} movie={movie} />
-              ))}
-            </div>
-
+            {/* Pagination on top */}
             <Pagination
               currentPage={page}
               totalPages={totalPages}
               onPageChange={(p) => setPage(p)}
             />
+
+            <div className="grid gap-6 sm:gap-8 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 mt-6">
+              {movies.map((movie) => (
+                <Card key={movie.id} movie={movie} />
+              ))}
+            </div>
           </>
         )}
       </section>
