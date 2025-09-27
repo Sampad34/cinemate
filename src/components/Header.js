@@ -25,9 +25,10 @@ export const Header = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    const queryTerm = event.target.search.value;
+    const queryTerm = event.target.search.value.trim();
+    if (!queryTerm) return;
     event.target.reset();
-    return navigate(`/search?q=${queryTerm}`);
+    navigate(`/search?q=${queryTerm}&page=1`);
   };
 
   return (
@@ -210,17 +211,17 @@ export const Header = () => {
                 </NavLink>
               </li>
               <li>
-                <NavLink to="/movies/popular" className={({ isActive }) => (isActive ? activeClass : inactiveClass)}>
+                <NavLink to="/movies/popular?page=1" className={({ isActive }) => (isActive ? activeClass : inactiveClass)}>
                   Popular
                 </NavLink>
               </li>
               <li>
-                <NavLink to="/movies/top" className={({ isActive }) => (isActive ? activeClass : inactiveClass)}>
+                <NavLink to="/movies/top?page=1" className={({ isActive }) => (isActive ? activeClass : inactiveClass)}>
                   Top-Rated
                 </NavLink>
               </li>
               <li>
-                <NavLink to="/movies/upcoming" className={({ isActive }) => (isActive ? activeClass : inactiveClass)}>
+                <NavLink to="/movies/upcoming?page=1" className={({ isActive }) => (isActive ? activeClass : inactiveClass)}>
                   Upcoming
                 </NavLink>
               </li>
